@@ -1,0 +1,125 @@
+
+
+*, :before, :after{ box-sizing: border-box; }
+// FONTS
+$sans: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+
+// COLORS
+$orange: #250925;
+$gray: #00141b;
+$gray-shine: #fff6f6;
+$white-off: #ffffff;
+
+// REUSABLE STYLES
+.unstyled{ list-style: none; padding: 0; margin: 0;
+  a{ text-decoration: none; }
+}
+.list-inline{ overflow: hidden;
+  li{ float: left; }
+}
+.menubar{position:relative; float:left; margin:0} 
+// HEADER STYLES
+.header{
+ position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 15.5em;
+  background: $gray;
+  margin-top: 1px;
+}
+
+.logo{
+  text-transform: lowercase;
+  font: 300 2em $sans;
+  text-align: center;
+  padding: 0; margin: 0;
+  
+  a{
+    display: block;
+    padding: 1em 0;
+    color: $white-off;
+    text-decoration: none;
+    transition: .15s linear color;
+    
+    &:hover{
+      color: #fff;
+      span{ color: $orange; }
+    }
+  }
+  
+  span{
+    font-weight: 700;
+    transition: .15s linear color;
+  }
+}
+
+// MAIN NAV
+.main-nav{
+  
+  ul{
+    border-top: solid 1px $gray-shine;
+  }
+  
+  li{
+    border-bottom: solid 1px $gray-shine;
+  }
+  
+  a{
+    padding: 1.1em 0;
+    color: $white-off;
+    font: 400 1.125em $sans;
+    text: {
+      align: center;
+      transform: uppercase;
+    }
+    
+    &:hover{
+      color: #00141b;
+    }
+  }
+}
+
+// HOVER SLIDE EFFECT
+.list-hover-slide{
+  
+  li{
+    position: relative;
+    overflow: hidden;
+  }
+  
+  a{
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: .35s ease color;
+    
+    &:before{
+      content: '';
+      display: block;
+      z-index: -1;
+      position: absolute;
+      left: -100%; top: 0;
+      width: 100%; height: 100%;
+      border-right: solid 5px $orange;
+      background: $gray-shine;
+      transition: .35s ease left;
+    }
+    
+    &.is-current,
+    &:hover{
+      
+      &:before{
+        left: 0;
+      }
+    }
+  }
+
+}
+.logo-img{
+  display: flex;
+  padding: 1em 0;
+  margin-bottom: 1em;
+  img{
+    width: 40%;
+    margin: 0 auto;
+  }
+}
